@@ -78,7 +78,8 @@ There are many multiple ways on how to flash the firmware. The easy ones are exp
 
 1. [Get it here](https://www.espressif.com/en/support/download/other-tools?5)
 2. Erase the flash of the ESP32 befor flashing a new release\
-   ![ESP32 erase flash with flash download tools](wiki/ESP32Flasher_Erase.PNG)
+![ESP32Flasher_Erase](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/631bf315-e94d-4206-8710-5391ec75358d)
+
 3. Select the firmware, bootloader & partition table and set everything as below
    ```shell
     0x8000 partition_table/partition-table.bin
@@ -86,7 +87,8 @@ There are many multiple ways on how to flash the firmware. The easy ones are exp
     0x10000 db_esp32.bin
     0x110000 www.bin
    ```
-   ![ESP download tool configuration](wiki/ESP32Flasher.png)
+   ![ESP32Flasher](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/a4ae4b09-5a49-4ed2-89f8-afac1f4c3d82)
+
 3.  Hit Start and power cycle your ESP32 after flashing
 
 ### Wiring
@@ -99,7 +101,9 @@ There are many multiple ways on how to flash the firmware. The easy ones are exp
 
 Defaults: UART2 (RX2, TX2 on GPIO 16, 17)
 
-![Example wiring adafruit ESP32 DevBoard](wiki/Pixhawk_wiring.png)
+
+![Pixhawk_wiring](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/ce21613b-e759-40d0-87ad-d63243301388)
+
 
 ### Configuration
 1.  Connect to the wifi `DroneBridge ESP32` with password `dronebridge`
@@ -107,7 +111,7 @@ Defaults: UART2 (RX2, TX2 on GPIO 16, 17)
  **You might need to disable the cellular connection to force the browser to use the wifi connection**
 3.  Configure as you please and hit `save`
 
-![DroneBridge for ESP32 web interface](wiki/dbesp32_webinterface.png)
+![dbesp32_webinterface](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/57236526-67f3-44b9-a458-029c8533b15c)
 
 **Configuration Options:**
 -   `Wifi SSID`: Up to 31 character long
@@ -122,69 +126,11 @@ Defaults: UART2 (RX2, TX2 on GPIO 16, 17)
 Most options require a restart/reset of ESP32 module
 
 ## Use with DroneBridge for Android or QGroundControl
-![DroneBridge for Android app screenshot](wiki/dp_app-map-2017-10-29-kleiner.png)
+
+![dp_app-map-2017-10-29-kleiner](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/4c341ae9-d3ea-458f-937e-828d3517b8cc)
 
 -   Use the Android app to display live telemetry data. Mission planning capabilities for MAVLink will follow.
 -   The ESP will auto broadcast messages to all connected devices via UDP to port 14550. QGroundControl should auto connect
 -   Connect via **TCP on port 5760** or **UDP on port 14550** to the ESP32 to send & receive data with a GCS of your choice. **In case of a UDP connection the GCS must send at least one packet (e.g. MAVLink heart beat etc.) to the UDP port of the ESP32 to register as an end point.**
 
-## Developers
-
-### Compile
- You will need the Espressif SDK: esp-idf + toolchain. Check out their website for more info and on how to set it up.
- The code is written in pure C using the esp-idf (no arduino libs).
-
- **This project uses the v4.3 branch of ESP-IDF**
-
- Compile and flash by running: `idf.py build`, `idf.py flash`
-
- ### API
-The webinterface communicates with a REST:API on the ESP32. You can use that API to set configurations not selectable 
-via the web-interface (e.g. baud rate). It also allows you to easily integrate DroneBridge for ESP32.
-
-
-**To request the settings**
-```http request
-http://dronebridge.local/api/settings/request
-```
-
-**To request stats**
-```http request
-http://dronebridge.local/api/system/stats
-```
-
-**Trigger a reboot**
-```http request
-http://dronebridge.local/api/system/reboot
-```
-
-**Trigger a settings change:** Send a valid JSON
-```json
-{
-  "wifi_ssid": "DroneBridge ESP32",
-  "wifi_pass": "dronebridge",
-  "ap_channel": 6,
-  "tx_pin": 17,
-  "rx_pin": 16,
-  "telem_proto": 4,
-  "baud": 115200,
-  "msp_ltm_port": 0,
-  "ltm_pp": 2,
-  "trans_pack_size": 64,
-  "ap_ip": "192.168.2.1"
-}
-```
-to
-```http request
-http://dronebridge.local/api/settings/change
-```
-
- ### Testing
- To test the frontend without the ESP32 run 
-
- ```sh
- npm install -g json-server
- json-server db.json --routes routes.json
- ```
-Set `const ROOT_URL = "http://localhost:3000/"` inside `frontend/db_settings.js`
 
