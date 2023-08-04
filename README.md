@@ -76,11 +76,13 @@ There are many multiple ways on how to flash the firmware. The easy ones are exp
 
 #### Windows only: Use flash download tools
 
-1. [Get it here](https://www.espressif.com/en/support/download/other-tools?5)
-2. Erase the flash of the ESP32 befor flashing a new release\
+1. Download the Binaries as provided in this repo
+   
+3. Erase the flash of the ESP32 befor flashing a new release
+   
 ![ESP32Flasher_Erase](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/631bf315-e94d-4206-8710-5391ec75358d)
 
-3. Select the firmware, bootloader & partition table and set everything as below
+4. Select the firmware, bootloader & partition table and set everything as below
    ```shell
     0x8000 partition_table/partition-table.bin
     0x1000 bootloader/bootloader.bin
