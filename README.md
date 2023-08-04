@@ -1,5 +1,7 @@
 # DRONE-BRIDGE-TELEMTRY-ESP32
-![DroneBridge logo](wiki/DroneBridgeLogo_text.png)
+
+![DroneBridgeLogo_text](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/04660b4f-919c-4a80-8d0b-7da2e5a081b0)
+
 
 # DroneBridge for ESP32
 A DroneBridge enabled firmware for the popular ESP32 modules from Espressif Systems. Probably the cheapest way to
@@ -10,7 +12,8 @@ It also allows for a fully transparent serial to wifi pass through link with var
 
 DroneBridge for ESP32 is a telemetry/low data rate only solution. There is no support for cameras connected to the ESP32 since it does not support video encoding.
 
-![DroneBridge for ESP32 concept](wiki/db_ESP32_setup.png)
+![db_ESP32_setup](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/8526d4c7-692c-4fee-a5bf-8661bbbeb1ee)
+
 
 ## Features
 -   Bi-directional link: MAVLink, MSP & LTM
@@ -27,7 +30,8 @@ DroneBridge for ESP32 is a telemetry/low data rate only solution. There is no su
 
 ![ESP32 module with VCP](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/ESP32_Espressif_ESP-WROOM-32_Dev_Board.jpg/313px-ESP32_Espressif_ESP-WROOM-32_Dev_Board.jpg)
 
-![DroneBridge for ESP32 block diagram blackbox](wiki/DroneBridgeForESP32Blackbox.png)
+![DroneBridgeForESP32Blackbox](https://github.com/VISHNUPRIYANR1812/DRONE-BRIDGE-TELEMTRY-ESP32/assets/134359531/7daed05e-b766-48d6-853b-a415cb7ff7db)
+
 
 Blackbox concept. UDP & TCP connections possible. Automatic UDP uni-cast of messages to port 14550 to all 
 connected devices/stations. Allows additional clients to register for UDP. Client must send a packet with length > 0 to UDP port of ESP32.
